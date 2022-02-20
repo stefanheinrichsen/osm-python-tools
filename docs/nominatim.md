@@ -92,6 +92,14 @@ print(heidelberg.displayName())
 ```
 The OSM ID can be provided in different standard formats, which are explained in the [general remarks](general-remarks.md).
 
+## Languages
+
+It is possible to add a parameter to set the default language setting of the result:
+```python
+result = nominatim.query(lat, long, params={'accept-language': "en"})
+```
+This is especially useful for places in non-latin areas of the world. If no translation to the desired language exists it will automatically fallback to the stored names in the local language of the respective place.
+
 ## Parameters
 
 As a default, `OSMPythonTools.Nominatim` uses the endpoint `https://nominatim.openstreetmap.org/search`. If another one should be used, for example, a local one, corresponding data can be provided:
